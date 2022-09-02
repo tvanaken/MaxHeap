@@ -2,11 +2,23 @@ package edu.unca.csci333;
 
 import java.util.Arrays;
 
+//Taylor Van Aken
+//8/26/2022
+//Homework 1
+
+/**
+ * Class to create and manipulate a binary max heap using an array
+ * @author Taylor Van Aken
+ */
 public class maxHeap {
 
 	private int[] arr;
 	private int heapSize;
 	
+	/**
+	 * Constructor used to build the binary max heap
+	 * @param arr the integer array used to build the heap with.
+	 */
 	public maxHeap(int[] arr) {
 		
 		super();
@@ -15,6 +27,11 @@ public class maxHeap {
 		buildMaxHeap();
 	}
 	
+	/**
+	 * Returns index of left child of certain heap index
+	 * @param index index of the array
+	 * @return index of left child of param
+	 */
 	private int leftChildOf(int index) {
 		
 		int child = (index*2) + 1;
@@ -27,6 +44,11 @@ public class maxHeap {
 		return child;
 	}
 	
+	/**
+	 * Returns index of right child of certain heap index
+	 * @param index index of the array
+	 * @return index of right child of param
+	 */
 	private int rightChildOf(int index) {
 		
 		int child = (index*2) + 2;
@@ -39,12 +61,19 @@ public class maxHeap {
 		return child;
 	}
 	
+	/**
+	 * Prints the heap as an array
+	 */
 	public void printMaxHeap() {
 	
 		System.out.println("Heapsize: " + heapSize);
 		System.out.println(Arrays.toString(arr));
 	}
 	
+	/**
+	 * Restores max heap property of index's subtree
+	 * @param index of array subtree wanting to apply max heap property to
+	 */
 	public void maxHeapify(int index) {
 		
 		int left = leftChildOf(index);
@@ -77,6 +106,9 @@ public class maxHeap {
 		}
 	}
 	
+	/**
+	 * Builds array into a max heap tree from bottom up
+	 */
 	private void buildMaxHeap() {
 		
 		for (int i = heapSize/2; i >= 0; i--) {
@@ -84,6 +116,9 @@ public class maxHeap {
 		}
 	}
 	
+	/**
+	 * Sorts array from largest to smallest by continuously removing the root
+	 */
 	public void heapSort() {
 	
 			buildMaxHeap();

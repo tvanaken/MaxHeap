@@ -2,6 +2,14 @@ package edu.unca.csci333;
 
 import java.util.Arrays;
 
+//Taylor Van Aken
+//8/26/2022
+//Homework 1
+
+/**
+ * Main class for testing maxHeap properties
+ * @author Taylor Van Aken
+ */
 public class main {
 
 	public static void main(String[] args) {
