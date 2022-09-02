@@ -11,7 +11,7 @@ public class maxHeap {
 		
 		super();
 		this.arr = arr;
-		heapSize = arr.length - 1;
+		heapSize = arr.length;
 		buildMaxHeap();
 	}
 	
@@ -51,35 +51,35 @@ public class maxHeap {
 		int right = rightChildOf(index);
 		int largest = index;
 		
-		while(true) {
-		
-			if (left == -1) {
-				break;
-			}
-			if (right == -1) {
-				break;
-			}
-			if (left <= heapSize && arr[left] > arr[index] && left != -1) {
+		try {
+			if (left < 0 || left >= heapSize) {
+				
+			} else if (left <= heapSize && arr[left] > arr[index] && left != -1) {
 				
 				largest = left;
 			}
-			if (right <= heapSize && arr[right] > arr[index] && right != -1) {
+			if (right < 0 || right >= heapSize) {
+				
+			} else if (right <= heapSize && arr[right] > arr[index] && arr[right] > arr[left]) {
 				
 				largest = right;
 			}
-			if (largest != index) {
-				
-				int temp = arr[index];
-				arr[index] = arr[largest];
-				arr[largest] = temp;
-				maxHeapify(largest);
-			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			
+		}
+		
+		if (largest != index) {
+			
+			int temp = arr[index];
+			arr[index] = arr[largest];
+			arr[largest] = temp;
+			maxHeapify(largest);
 		}
 	}
 	
 	private void buildMaxHeap() {
 		
-		for (int i = heapSize/2; i >= 1; i--) {
+		for (int i = heapSize/2; i >= 0; i--) {
 			maxHeapify(i);
 		}
 	}
@@ -89,7 +89,7 @@ public class maxHeap {
 			buildMaxHeap();
 			int copySize = heapSize;
 			
-			for (int i = heapSize; i > 1; i--) {
+			for (int i = heapSize - 1; i > 0; i--) {
 				
 				int temp = arr[0];
 				arr[0] = arr[i];
